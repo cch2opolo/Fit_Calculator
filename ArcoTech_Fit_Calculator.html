@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ArcoTech Fit Calculator</title>
+
+    <style media="screen">
+      /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+      /* Document
+         ========================================================================== */
+
+      /**
+       * 1. Correct the line height in all browsers.
+       * 2. Prevent adjustments of font size after orientation changes in iOS.
+       */
+
+      html {
+        line-height: 1.15; /* 1 */
+        -webkit-text-size-adjust: 100%; /* 2 */
+      }
+
+      /* Sections
+         ========================================================================== */
+
+      /**
+       * Remove the margin in all browsers.
+       */
+
+      body {
+        margin: 0;
+      }
+
+      /**
+       * Render the `main` element consistently in IE.
+       */
+
+      main {
+        display: block;
+      }
+
+      /**
+       * Correct the font size and margin on `h1` elements within `section` and
+       * `article` contexts in Chrome, Firefox, and Safari.
+       */
+
+      h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+
+      /* Grouping content
+         ========================================================================== */
+
+      /**
+       * 1. Add the correct box sizing in Firefox.
+       * 2. Show the overflow in Edge and IE.
+       */
+
+      hr {
+        box-sizing: content-box; /* 1 */
+        height: 0; /* 1 */
+        overflow: visible; /* 2 */
+      }
+
+      /**
+       * 1. Correct the inheritance and scaling of font size in all browsers.
+       * 2. Correct the odd `em` font sizing in all browsers.
+       */
+
+      pre {
+        font-family: monospace, monospace; /* 1 */
+        font-size: 1em; /* 2 */
+      }
+
+      /* Text-level semantics
+         ========================================================================== */
+
+      /**
+       * Remove the gray background on active links in IE 10.
+       */
+
+      a {
+        background-color: transparent;
+      }
+
+      /**
+       * 1. Remove the bottom border in Chrome 57-
+       * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+       */
+
+      abbr[title] {
+        border-bottom: none; /* 1 */
+        text-decoration: underline; /* 2 */
+        text-decoration: underline dotted; /* 2 */
+      }
+
+      /**
+       * Add the correct font weight in Chrome, Edge, and Safari.
+       */
+
+      b,
+      strong {
+        font-weight: bolder;
+      }
+
+      /**
+       * 1. Correct the inheritance and scaling of font size in all browsers.
+       * 2. Correct the odd `em` font sizing in all browsers.
+       */
+
+      code,
+      kbd,
+      samp {
+        font-family: monospace, monospace; /* 1 */
+        font-size: 1em; /* 2 */
+      }
+
+      /**
+       * Add the correct font size in all browsers.
+       */
+
+      small {
+        font-size: 80%;
+      }
+
+      /**
+       * Prevent `sub` and `sup` elements from affecting the line height in
+       * all browsers.
+       */
+
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+
+      sub {
+        bottom: -0.25em;
+      }
+
+      sup {
+        top: -0.5em;
+      }
+
+      /* Embedded content
+         ========================================================================== */
+
+      /**
+       * Remove the border on images inside links in IE 10.
+       */
+
+      img {
+        border-style: none;
+      }
+
+      /* Forms
+         ========================================================================== */
+
+      /**
+       * 1. Change the font styles in all browsers.
+       * 2. Remove the margin in Firefox and Safari.
+       */
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit; /* 1 */
+        font-size: 100%; /* 1 */
+        line-height: 1.15; /* 1 */
+        margin: 0; /* 2 */
+      }
+
+      /**
+       * Show the overflow in IE.
+       * 1. Show the overflow in Edge.
+       */
+
+      button,
+      input { /* 1 */
+        overflow: visible;
+      }
+
+      /**
+       * Remove the inheritance of text transform in Edge, Firefox, and IE.
+       * 1. Remove the inheritance of text transform in Firefox.
+       */
+
+      button,
+      select { /* 1 */
+        text-transform: none;
+      }
+
+      /**
+       * Correct the inability to style clickable types in iOS and Safari.
+       */
+
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+      }
+
+      /**
+       * Remove the inner border and padding in Firefox.
+       */
+
+      button::-moz-focus-inner,
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+
+      /**
+       * Restore the focus styles unset by the previous rule.
+       */
+
+      button:-moz-focusring,
+      [type="button"]:-moz-focusring,
+      [type="reset"]:-moz-focusring,
+      [type="submit"]:-moz-focusring {
+        outline: 1px dotted ButtonText;
+      }
+
+      /**
+       * Correct the padding in Firefox.
+       */
+
+      fieldset {
+        padding: 0.35em 0.75em 0.625em;
+      }
+
+      /**
+       * 1. Correct the text wrapping in Edge and IE.
+       * 2. Correct the color inheritance from `fieldset` elements in IE.
+       * 3. Remove the padding so developers are not caught out when they zero out
+       *    `fieldset` elements in all browsers.
+       */
+
+      legend {
+        box-sizing: border-box; /* 1 */
+        color: inherit; /* 2 */
+        display: table; /* 1 */
+        max-width: 100%; /* 1 */
+        padding: 0; /* 3 */
+        white-space: normal; /* 1 */
+      }
+
+      /**
+       * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+       */
+
+      progress {
+        vertical-align: baseline;
+      }
+
+      /**
+       * Remove the default vertical scrollbar in IE 10+.
+       */
+
+      textarea {
+        overflow: auto;
+      }
+
+      /**
+       * 1. Add the correct box sizing in IE 10.
+       * 2. Remove the padding in IE 10.
+       */
+
+      [type="checkbox"],
+      [type="radio"] {
+        box-sizing: border-box; /* 1 */
+        padding: 0; /* 2 */
+      }
+
+      /**
+       * Correct the cursor style of increment and decrement buttons in Chrome.
+       */
+
+      [type="number"]::-webkit-inner-spin-button,
+      [type="number"]::-webkit-outer-spin-button {
+        height: auto;
+      }
+
+      /**
+       * 1. Correct the odd appearance in Chrome and Safari.
+       * 2. Correct the outline style in Safari.
+       */
+
+      [type="search"] {
+        -webkit-appearance: textfield; /* 1 */
+        outline-offset: -2px; /* 2 */
+      }
+
+      /**
+       * Remove the inner padding in Chrome and Safari on macOS.
+       */
+
+      [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+
+      /**
+       * 1. Correct the inability to style clickable types in iOS and Safari.
+       * 2. Change font properties to `inherit` in Safari.
+       */
+
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button; /* 1 */
+        font: inherit; /* 2 */
+      }
+
+      /* Interactive
+         ========================================================================== */
+
+      /*
+       * Add the correct display in Edge, IE 10+, and Firefox.
+       */
+
+      details {
+        display: block;
+      }
+
+      /*
+       * Add the correct display in all browsers.
+       */
+
+      summary {
+        display: list-item;
+      }
+
+      /* Misc
+         ========================================================================== */
+
+      /**
+       * Add the correct display in IE 10+.
+       */
+
+      template {
+        display: none;
+      }
+
+      /**
+       * Add the correct display in IE 10.
+       */
+
+      [hidden] {
+        display: none;
+
+      }
+      #master_wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(0px, auto);
+        max-width: 1000px;
+      }
+
+      #data_table {
+        display: none;
+        grid-row: 1;
+        grid-column: 1;
+      }
+
+      header {
+        grid-row: 2;
+        grid-column: 1 / 3;
+      }
+
+      #inputs {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(0px, auto);
+        grid-row: 3;
+        grid-column: 1 / 3;
+      }
+
+      #outputs {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(0px, auto);
+        grid-row: 4;
+        grid-column: 1 / 3;
+      }
+
+      #need_form {
+        grid-column: 1 / 7;
+        grid-row: 1;
+        margin: 0 auto 30px;
+      }
+
+      #model_form {
+        grid-column: 1 / 3;
+        grid-row: 2;
+      }
+
+      #elastomer_form {
+        grid-column: 3 / 5;
+        grid-row: 2;
+      }
+
+      #core_form {
+        display: none;
+        grid-column: 1 / 3;
+        grid-row: 5;
+      }
+
+      #mud_form {
+        grid-column: 5 / 7;
+        grid-row: 2;
+      }
+
+      #shopTemp_form {
+        grid-column: 5 / 7;
+        grid-row: 3;
+      }
+
+      #dhTemp_form {
+        grid-column: 1 / 3;
+        grid-row: 3;
+      }
+
+      #diff_form {
+        display: none;
+        grid-column: 3 / 5;
+        grid-row: 3;
+      }
+
+      #fit_form {
+        grid-column: 3 / 5;
+        grid-row: 3;
+      }
+
+      #calc_button {
+        grid-column: 1 / 7;
+        grid-row: 4;
+        margin: 30px auto;
+      }
+
+      #bottHr {
+        grid-column: 1 / 7;
+        grid-row: 1;
+      }
+
+      #dhSwell_display {
+        grid-column: 4 / 7;
+        grid-row: 4;
+      }
+
+      #dhFit_display {
+        grid-column: 1 / 4;
+        grid-row: 4;
+      }
+
+      #dhTargetComp_display {
+        grid-column: 1 / 4;
+        grid-row: 2;
+      }
+
+      #dhAcceptComp_display {
+        grid-column: 4 / 7;
+        grid-row: 2;
+      }
+
+      #dhComp_display {
+        grid-column: 1 / 7;
+        grid-row: 3;
+      }
+
+      #targetFit_display {
+        grid-column: 1 / 7;
+        grid-row: 5;
+      }
+
+      #targetTemp_display {
+        grid-column: 1 / 7;
+        grid-row: 6;
+      }
+
+      body{
+        margin: 20px;
+      }
+
+      .all, .confirm_fit, .find_core {
+        margin: 42px auto 20px auto;
+      }
+
+      h1 {
+        font-size: 75px;
+        color: darkgrey;
+        background-color: white;
+        text-align: center;
+      }
+
+      h1, h2, h3, p {
+        font-family: sans-serif;
+      }
+
+      h3 {
+        font-size: 36px;
+      }
+
+      label {
+        display: inline-block;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 36px;
+        padding: 0 0 10px 0;
+      }
+
+      th {
+        width: 8.3%;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      hr {
+        border: 0;
+        display: block;
+        border: 0;
+        height: 5px;
+        background-image: linear-gradient(to right, rgba(255, 98, 0, .1), rgba(255, 98, 0, 1), rgba(255, 98, 0, .1));
+      }
+
+      #topHr {
+        margin: 0 0 25px 0;
+      }
+
+      p {
+        font-weight: bold;
+        font-size: 36px;
+        font-family: sans-serif;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        min-width: 250px;
+      }
+
+      #dh_temp_disp, #fit_in, .dropdown, #calc_button {
+        text-align: center;
+        background-color: #2FB24C;
+        border-radius: 15px;
+        color: white;
+        font-weight: bold;
+        font-family: sans-serif;
+        height: 1.75em;
+        font-size: 32px;
+      }
+
+      #dh_temp_disp {
+        width: 80px;
+      }
+
+      #fit_in {
+        width: 160px;
+      }
+
+      #need_in {
+        font-size: 36px;
+        width: 900px;
+      }
+
+      #calc_button {
+        background-color: #ff6200;
+        border-radius: 25px;
+        font-size: 42px;
+        min-width: 250px;
+        padding: 0 100px;
+      }
+
+      #targetFit_display, #targetTemp_display {
+        margin: 0 auto;
+      }
+
+      #dh_temp_in {
+        width: 200px;
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        document.getElementById('data_table').style.display = 'display';
+        document.getElementById('data_out').style.display = 'none';
+        document.getElementById('targetFit_display').style.display = "none";
+        document.getElementById('targetTemp_display').style.display = "none";
+
+        drawScale();
+
+      }
+
+      function drawScale() {
+        var c = document.getElementById('fitCanvas');
+        var ctx = c.getContext('2d');
+        ctx.moveTo(100, 60);
+        ctx.lineTo(100, 130);
+        ctx.stroke();
+        ctx.moveTo(300, 60);
+        ctx.lineTo(300, 130);
+        ctx.stroke();
+        ctx.moveTo(500, 60);
+        ctx.lineTo(500, 130);
+        ctx.stroke();
+        ctx.moveTo(700, 60);
+        ctx.lineTo(700, 130);
+        ctx.stroke();
+        var grd  = ctx.createLinearGradient(0, 0 , 800, 0);
+        grd.addColorStop(0, 'red');
+        grd.addColorStop(0.125, 'yellow');
+        grd.addColorStop(0.375, 'green');
+        grd.addColorStop(0.625, 'green');
+        grd.addColorStop(0.875, 'yellow');
+        grd.addColorStop(1, 'red');
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 70, 800, 50);
+        ctx.beginPath();
+        ctx.rect(0, 70, 800, 50);
+        ctx.stroke();
+        ctx.font = "bold 36px sans-serif";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        ctx.fillText("1.50%", 100, 175);
+        ctx.fillText("2.50%", 300, 175);
+        ctx.fillText("3.50%", 500, 175);
+        ctx.fillText("4.50%", 700, 175);
+        ctx.fillText("---", 100, 45);
+        ctx.fillText("---", 300, 45);
+        ctx.fillText("---", 500, 45);
+        ctx.fillText("---", 700, 45);
+        ctx.fillText("Compression", 400, 250);
+
+        var d = document.getElementById('tempCanvas');
+        var tempCtx = d.getContext('2d');
+        tempCtx.drawImage(c, 0 , 0);
+      }
+
+      function updateDhTemp(val) {
+        document.getElementById("dh_temp_disp").value = val;
+      }
+
+      function updateDhTempSlider(val) {
+        document.getElementById("dh_temp_in").value = val;
+      }
+
+      function updateDiff(val) {
+        document.getElementById("diff_disp").value = val;
+      }
+
+      function updateDiffSlider(val) {
+        document.getElementById("diff_in").value = val;
+      }
+
+      function updateFit(val) {
+        document.getElementById("fit_disp").value = val;
+      }
+
+      function updateFitSlider(val) {
+        document.getElementById("fit_in").value = val;
+      }
+
+      function needLayoutChange(val) {
+        if (val == "output_fit") {
+          document.getElementById('mud_form').style.display = "block";
+          document.getElementById('mud_form').style.gridRow = "2";
+          document.getElementById('mud_form').style.gridColumn = "5 / 7";
+          document.getElementById('core_form').style.display = "none";
+          document.getElementById('core_form').style.gridRow = "5";
+          document.getElementById('core_form').style.gridColumn = "1 / 3";
+          document.getElementById('shopTemp_form').style.display = "block";
+          document.getElementById('shopTemp_form').style.gridRow = "3";
+          document.getElementById('shopTemp_form').style.gridColumn = "4 / 7";
+          document.getElementById('dhTemp_form').style.display = "block";
+          document.getElementById('dhTemp_form').style.gridRow = "3";
+          document.getElementById('dhTemp_form').style.gridColumn = "1 / 4";
+          document.getElementById('diff_form').style.display = "none";
+          document.getElementById('diff_form').style.gridRow = "4";
+          document.getElementById('diff_form').style.gridColumn = "3 / 5";
+          document.getElementById('fit_form').style.display = 'none';
+          document.getElementById('fit_form').style.gridRow = "5";
+          document.getElementById('fit_form').style.gridColumn = "3 / 5";
+          document.getElementById('dhSwell_display').style.display = "none";
+          document.getElementById('dhFit_display').style.display = "none";
+          document.getElementById('dhTargetComp_display').style.display = "none";
+          document.getElementById('dhComp_display').style.display = "none";
+          document.getElementById('dhAcceptComp_display').style.display = "none";
+          document.getElementById('targetFit_display').style.display = "block";
+          document.getElementById('targetTemp_display').style.display = "none";
+        } else if (val == "output_temp") {
+          document.getElementById('mud_form').style.display = "none";
+          document.getElementById('mud_form').style.gridRow = "2";
+          document.getElementById('mud_form').style.gridColumn = "3 / 5";
+          document.getElementById('core_form').style.display = "block";
+          document.getElementById('core_form').style.gridRow = "2";
+          document.getElementById('core_form').style.gridColumn = "5 / 7";
+          document.getElementById('shopTemp_form').style.display = "none";
+          document.getElementById('shopTemp_form').style.gridRow = "4";
+          document.getElementById('shopTemp_form').style.gridColumn = "3 / 5";
+          document.getElementById('dhTemp_form').style.display = "none";
+          document.getElementById('dhTemp_form').style.gridRow = "3";
+          document.getElementById('dhTemp_form').style.gridColumn = "3 / 5";
+          document.getElementById('diff_form').style.display = "none";
+          document.getElementById('diff_form').style.gridRow = "4";
+          document.getElementById('diff_form').style.gridColumn = "3 / 5";
+          document.getElementById('fit_form').style.display = 'none';
+          document.getElementById('fit_form').style.gridRow = "5";
+          document.getElementById('fit_form').style.gridColumn = "3 / 5";
+          document.getElementById('dhSwell_display').style.display = "none";
+          document.getElementById('dhFit_display').style.display = "none";
+          document.getElementById('dhTargetComp_display').style.display = "none";
+          document.getElementById('dhComp_display').style.display = "none";
+          document.getElementById('dhAcceptComp_display').style.display = "none";
+          document.getElementById('targetFit_display').style.display = "none";
+          document.getElementById('targetTemp_display').style.display = "block";
+        } else if (val == "output_comp") {
+          document.getElementById('mud_form').style.display = "block";
+          document.getElementById('mud_form').style.gridRow = "2";
+          document.getElementById('mud_form').style.gridColumn = "5 / 7";
+          document.getElementById('core_form').style.display = "none";
+          document.getElementById('core_form').style.gridRow = "5";
+          document.getElementById('core_form').style.gridColumn = "1 / 3";
+          document.getElementById('shopTemp_form').style.display = "block";
+          document.getElementById('shopTemp_form').style.gridRow = "3";
+          document.getElementById('shopTemp_form').style.gridColumn = "5 / 7";
+          document.getElementById('dhTemp_form').style.display = "block";
+          document.getElementById('dhTemp_form').style.gridRow = "3";
+          document.getElementById('dhTemp_form').style.gridColumn = "1 / 3";
+          document.getElementById('diff_form').style.display = "none";
+          document.getElementById('diff_form').style.gridRow = "5";
+          document.getElementById('diff_form').style.gridColumn = "3 / 5";
+          document.getElementById('fit_form').style.display = 'block';
+          document.getElementById('fit_form').style.gridRow = "3";
+          document.getElementById('fit_form').style.gridColumn = "3 / 5";
+          document.getElementById('dhSwell_display').style.display = "block";
+          document.getElementById('dhFit_display').style.display = "block";
+          document.getElementById('dhTargetComp_display').style.display = "block";
+          document.getElementById('dhComp_display').style.display = "block";
+          document.getElementById('dhAcceptComp_display').style.display = "block";
+          document.getElementById('targetFit_display').style.display = "none";
+          document.getElementById('targetTemp_display').style.display = "none";
+        }
+      }
+
+      function calcFunction() {
+        var e, input, filter, table, tr, td, i, txtValue;
+        e = document.getElementById("model_in");
+        input = e.options[e.selectedIndex].text;
+        filter = input.toUpperCase();
+        table = document.getElementById("data_table");
+        tr = table.getElementsByTagName("tr");
+        // VLookup Eqivilent,  May use ID's instead of indexes //
+        var nomFit, nomMinorID, nomRotorOD, shopFit, dhTemp, swellRate, tubeID;
+        var statorID, dhSwell, dhElastThick, dhFit, dhComp;
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              var core = document.getElementById('core_in').value
+              if (core == "Standard") {
+                nomFit = tr[i].getElementsByTagName("td")[1].innerText;
+                nomMinorID = tr[i].getElementsByTagName("td")[5].innerText;
+                nomRotorOD = parseFloat(nomFit) + parseFloat(nomMinorID);
+              } else if (core == '1xOS') {
+                nomFit = tr[i].getElementsByTagName("td")[2].innerText;
+                nomMinorID = tr[i].getElementsByTagName("td")[6].innerText;
+              }  else if (core == '1.5xOS') {
+                nomFit = tr[i].getElementsByTagName("td")[3].innerText;
+                nomMinorID = tr[i].getElementsByTagName("td")[7].innerText;
+              } else if (core == '2xOS') {
+                nomFit = tr[i].getElementsByTagName("td")[4].innerText;
+                nomMinorID = tr[i].getElementsByTagName("td")[8].innerText;
+              }
+              nomRotorOD = tr[i].getElementsByTagName("td")[11].innerText;
+              mudType = document.getElementById('mud_in').value;
+              shopFit = document.getElementById('fit_in').value;
+              shopTemp = document.getElementById('shopTemp_in').value;
+              dhTemp = document.getElementById('dh_temp_in').value;
+              swellRate = tr[i].getElementsByTagName("td")[10].innerText;
+              tubeID = tr[i].getElementsByTagName("td")[9].innerText;
+              statorID = parseFloat(nomRotorOD) - parseFloat(shopFit);
+              /* IF OBM..... */
+              if (mudType == "OBM" || mudType == "Invert") {
+                dhSwell = (swellRate * (dhTemp - shopTemp)) + 0.003;
+              } else {
+                dhSwell = (parseFloat(swellRate) * (parseFloat(dhTemp) - parseFloat(shopTemp)));
+              }
+              nomElastThick = parseFloat(tubeID) - parseFloat(nomMinorID);
+              dhElastThick = parseFloat(tubeID) - parseFloat(statorID) + parseFloat(dhSwell);
+              dhFit = parseFloat(shopFit) + parseFloat(dhSwell);
+              document.getElementById('data_out').innerText = nomMinorID;
+              dhComp = (parseFloat(dhFit) / parseFloat(dhElastThick)) * 100;
+
+              /*CALCULATOR SHOP FIT RANGES*/
+              lowTargetFit = (0.015 * parseFloat(dhElastThick)) - parseFloat(dhSwell);
+              midLowTargetFit = (0.025 * parseFloat(dhElastThick)) - parseFloat(dhSwell);
+              midHiTargetFit = (0.035 * parseFloat(dhElastThick)) - parseFloat(dhSwell);
+              hiTargetFit = (0.045 * parseFloat(dhElastThick)) - parseFloat(dhSwell);
+
+
+
+
+
+              /*CALCULATE TEMPERATURE RANGES*/
+              let a = (.015 * parseFloat(nomElastThick)) - parseFloat(nomFit);
+              let b = 1.015 * parseFloat(swellRate);
+              lowTargetTemp = (a / b) + parseFloat(shopTemp);
+              let c = (0.025 * parseFloat(nomElastThick)) - parseFloat(nomFit);
+              let d = 1.025 * parseFloat(swellRate);
+              midLowTargetTemp = (c / d) + parseFloat(shopTemp);
+              let e = (0.035 * parseFloat(nomElastThick)) - parseFloat(nomFit);
+              let f = 1.035 * parseFloat(swellRate);
+              midHiTargetTemp = (e / f) + parseFloat(shopTemp);
+              let g = (0.045 * parseFloat(nomElastThick)) - parseFloat(nomFit);
+              let h = 1.045 * parseFloat(swellRate);
+              hiTargetTemp = (g / h) + parseFloat(shopTemp);
+
+              /*WRITE COMPRESSION RESULTS TO DISPLAY*/
+              document.getElementById('dhSwell_out').innerText = dhSwell.toFixed(3)+" in";
+              document.getElementById('dhFit_out').innerText = dhFit.toFixed(3)+" in";
+              document.getElementById('dhComp_out').innerText = dhComp.toFixed(2)+" %";
+              document.getElementById('DhTargetComp_out').innerText = "2.50% - 3.50%";
+              document.getElementById('DhAcceptComp_out').innerText = "1.50% - 4.50%";
+
+
+              /*WRITE FIT RESULTS TO DISPLAY*/
+              var updateFitC = document.getElementById('fitCanvas');
+              var updateFitCtx = updateFitC.getContext('2d');
+              updateFitCtx.clearRect(0, 0, 1000, 59);
+              updateFitCtx.font = "bold 36px sans-serif";
+              updateFitCtx.fillStyle = "black";
+              updateFitCtx.textAlign = "center";
+              updateFitCtx.fillText(lowTargetFit.toFixed(3) + " in", 100, 45);
+              updateFitCtx.fillText(midLowTargetFit.toFixed(3) + " in", 300, 45);
+              updateFitCtx.fillText(midHiTargetFit.toFixed(3) + " in", 500, 45);
+              updateFitCtx.fillText(hiTargetFit.toFixed(3) + " in", 700, 45);
+
+              /*WRITE TEMPERATURE RESULTS TO DISPLAY*/
+              var updateTempC = document.getElementById('tempCanvas');
+              var updateTempCtx = updateTempC.getContext('2d');
+              updateTempCtx.clearRect(0, 0, 1000, 59);
+              updateTempCtx.font = "bold 36px sans-serif";
+              updateTempCtx.fillStyle = "black";
+              updateTempCtx.textAlign = "center";
+              if (isNaN(lowTargetTemp)) {
+                updateTempCtx.fillText('Not Yet Available!', 400, 45);
+              } else {
+                updateTempCtx.fillText(lowTargetTemp.toFixed(0) + "\xB0F", 100, 45);
+                updateTempCtx.fillText(midLowTargetTemp.toFixed(0) + "\xB0F", 300, 45);
+                updateTempCtx.fillText(midHiTargetTemp.toFixed(0) + "\xB0F", 500, 45);
+                updateTempCtx.fillText(hiTargetTemp.toFixed(0) + "\xB0F", 700, 45);
+              }
+
+
+            } else {}
+          }
+        }
+      }
+
+    </script>
+
+  </head>
+  <body>
+    <div id="master_wrapper">
+      <section>
+        <table id="data_table">
+          <tr>
+            <th>Model</th>
+            <th>STD Fit</th><th>1xOS fit</th><th>1.5xOS Fit</th><th>2xOS Fit</th>
+            <th>STD MinID</th> <th>1xOS MinID</th><th>1.5xOS MinID</th><th>2xOS MinID</th>
+            <th>Tube ID</th><th>Swell Rate</th><th>Rotor C-V</th>
+            <th>Low Comp</th><th>MedLow Comp</th><th>MedHi Comp</th><th>Hi Comp</th>
+          </tr>
+          <tr>
+            <td>5" 6:7 8.0</td>
+            <td>0.000</td><td>-0.027</td><td>-0.036</td><td>-0.044</td>
+            <td>2.634</td><td>2.661</td><td>2.670</td><td>2.678</td>
+            <td>4.00</td><td>.000205</td><td>2.634</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>5" 6:7 9.0</td>
+            <td>0.003</td><td>-0.021</td><td></td><td>-0.041</td>
+            <td>2.806</td><td>2.830</td><td></td><td>2.850</td>
+            <td>4.00</td><td>.000209</td><td>2.806</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>5.5" 5:6 10.0</td>
+            <td></td><td></td><td>-0.034</td><td>-0.052</td>
+            <td></td><td></td><td>2.716</td><td>2.734</td>
+            <td>4.50</td><td>.000268</td><td>2.682</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>5.75" 6:7 9.8</td>
+            <td>-0.003</td><td></td><td></td><td></td>
+            <td>2.812</td><td></td><td></td><td></td>
+            <td>4.50</td><td>.000253</td><td>2.809</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>5.75" 6:7 10.2</td>
+            <td>-0.003</td><td>-0.023</td><td></td><td></td>
+            <td>2.974</td><td>2.994</td><td></td><td></td>
+            <td>4.50</td><td>.000229</td><td>2.971</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>6.62" 6:7 7.6</td>
+            <td>-0.003</td><td></td><td></td><td></td>
+            <td>3.831</td><td></td><td></td><td></td>
+            <td>5.63</td><td>0.0000269</td><td>3.828</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>6.75" 7:8 3.0</td>
+            <td>0.007</td><td></td><td></td><td></td>
+            <td>4.053</td><td></td><td></td><td></td>
+            <td>5.50</td><td>0.000217</td><td>4.060</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>6.75" 7:8 5.0</td>
+            <td>0.003</td><td>-0.023</td><td></td><td>-0.042</td>
+            <td>4.005</td><td>4.031</td><td></td><td>4.050</td>
+            <td>5.50</td><td>0.000224</td><td>4.008</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>6.75" 7:8 5.7</td>
+            <td>0.006</td><td></td><td></td><td></td>
+            <td>4.144</td><td></td><td></td><td></td>
+            <td>5.50</td><td>0.000203</td><td>4.150</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>7" 7:8 8.5</td>
+            <td>0.001</td><td></td><td></td><td></td>
+            <td>4.487</td><td></td><td></td><td></td>
+            <td>5.75</td><td>0.000189</td><td>4.488</th>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>7.25" 6:7 4.6</td>
+            <td>-0.004</td><td></td><td></td><td></td>
+            <td>4.185</td><td></td><td></td><td></td>
+            <td>6.00</td><td>0.000272</td><td>4.181</th>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>7.25" 7:8 8.5</td>
+            <td>-0.005</td><td></td><td></td><td></td>
+            <td>4.187</td><td></td><td></td><td></td>
+            <td>6.00</td><td>0.000272</td><td>4.182</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>7.25" 5:6 8.8</td>
+            <td>-0.010</td><td>-0.045</td><td></td><td></td>
+            <td>3.537</td><td>3.572</td><td></td><td></td>
+            <td>6.0</td><td>0.000369</td><td>3.527</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>7.75" 7:8 3.4</td>
+            <td>-0.003</td><td></td><td></td><td></td>
+            <td>4.728</td><td></td><td></td><td></td>
+            <td>6.50</td><td>0.000266</td><td>4.725</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>8" 7:8 4.0</td>
+            <td>0.022</td><td></td><td></td><td></td>
+            <td>4.578</td><td></td><td></td><td></td>
+            <td>6.25</td><td>.000251</td><td>4.600</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>8" 7:8 5.9</td>
+            <td>0.016</td><td></td><td></td><td></td>
+            <td>4.584</td><td></td><td></td><td></td>
+            <td>6.25</td><td>0.000250</td><td>4.600</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+          <tr>
+            <td>8.5" 6:7 7.5</td>
+            <td>0.000</td><td></td><td></td><td></td>
+            <td>4.701</td><td></td><td></td><td></td>
+            <td>6.75</td><td>0.000307</td><td>4.701</td>
+            <td>0.015</td><td>0.025</td><td>0.035</td><td>0.045</td>
+          </tr>
+        </table>
+      </section>
+      <header>
+        <img src="http://03c9068.netsolhost.com/wordpress3/wp-content/uploads/2020/06/Arco-Tech-logo.png" alt="">
+        <h1>Fit Calculator</h1>
+        <div id="topHr">
+          <hr>
+        </div>
+      </header>
+      <section id="inputs">
+        <div class="all" id="need_form">
+          <label for="need_in">What do you want to do?</label>
+          <br>
+          <select class="dropdown" name="need_in" id="need_in" onChange="needLayoutChange(this.value);">
+            <option value="output_comp">Confirm an exisiting is fit correct</option>
+            <option value="output_fit">Find proper fit for an application</option>
+            <option value="output_temp">Find model temp range for an ArcoTech Model</option>
+          </select>
+        </div>
+        <div class="all" id="model_form">
+          <label for="model_in">Model</label>
+          <br>
+          <select class="dropdown" name="model_in" id="model_in">
+            <option value="5 6:7 8.0">5" 6:7 8.0</option>
+            <option value="5 6:7 9.0">5" 6:7 9.0</option>
+            <option value="5.5 5:6 10.0">5.5" 5:6 10.0</option>
+            <option value="5.75 6:7 9.8">5.75" 6:7 9.8</option>
+            <option value="5.75 6:7 10.2">5.75" 6:7 10.2</option>
+            <option value="6.62 6:7 7.6">6.62" 6:7 7.6</option>
+            <option value="6.75 7:8 3.0">6.75" 7:8 3.0</option>
+            <option value="6.75 7:8 5.0">6.75" 7:8 5.0</option>
+            <option value="6.75 7:8 5.7">6.75" 7:8 5.7</option>
+            <option value="7 7:8 8.5">7" 7:8 8.5</option>
+            <option value="7.25 6:7 4.6">7.25" 6:7 4.6</option>
+            <option value="7.25 7:8 8.5">7.25" 7:8 8.5</option>
+            <option value="7.25 5:6 8.8">7.25" 5:6 8.8</option>
+            <option value="7.75 7:8 3.4">7.75" 7:8 3.4</option>
+            <option value="8 7:8 4.0">8" 7:8 4.0</option>
+            <option value="8 7:8 5.9">8" 7:8 5.9</option>
+            <option value="8.5 6:7 7.5">8.5" 6:7 7.5</option>
+          </select>
+        </div>
+        <div class="all" id="elastomer_form">
+          <label for="elastomer_in">Elastomer</label>
+          <br>
+          <select class="dropdown" name="elastomer_in" id="elastomer_in">
+            <option value="RD202">RD202</option>
+            <option value="Vantage">Vantage</option>
+          </select>
+        </div>
+        <div class="confirm_fit" id="core_form">
+          <label for="core_in">Core</label>
+          <br>
+          <select class="dropdown" name="core_in" id="core_in">
+            <option value="Standard" selected>Standard</option>
+            <option value="1xOS">1 x OS</option>
+            <option value="1.5xOS">1.5 x OS</option>
+            <option value="2xOS">2 x OS</option>
+          </select>
+        </div>
+        <div class="all" id="mud_form">
+          <label for="mud_in">Mud Type</label>
+          <br>
+          <select class="dropdown" name="mud_in" id="mud_in">
+            <option value="OBM">OBM</option>
+            <option value="Invert">Invert</option>
+            <option value="WBM">WBM</option>
+            <option value="Brine">Brine</option>
+          </select>
+        </div>
+        <div class="confirm_fit find_core" id="shopTemp_form">
+          <label for="shopTemp_in">Shop Temp</label>
+          <br>
+          <select class="dropdown" name="shopTemp_in" id="shopTemp_in" value=75>
+            <option value=70>70</option>
+            <option value=75 selected>75</option>
+          </select>
+        </div>
+        <div class="all" id="dhTemp_form">
+          <label for="dh_temp_in">Downhole Temp</label>
+          <br>
+          <input type="range" name="dh_temp_in" id="dh_temp_in" onclick="updateDhTemp(this.value);" value="225" min="100" max="400">
+          <input type="textbox" name="dh_temp_disp" id="dh_temp_disp" onChange="updateDhTempSlider(this.value)" value=225>
+        </div>
+        <div class="confirm_fit find_core" id="diff_form">
+          <label for="diff_in">Differential Performance</label>
+          <br>
+          <select class="dropdown" name="diff_in" id="diff_in">
+            <option value="easy">Low Diff, Long Run</option>
+            <option value="normal" selected>Best Overall Performance</option>
+            <option value="normal">High Diff, Short Run</option>
+          </select>
+        </div>
+        <div class="confirm_fit" id="fit_form">
+          <label for="fit_in">Shop Fit</label>
+          <br>
+          <input type="number" name="fit_in" id="fit_in" value=0.000 step=0.001 min=-0.040 max=0.040>
+        </div>
+        <button id="calc_button" onclick="calcFunction()">Calculate!</button>
+      </section>
+      <section id="outputs">
+        <div id="bottHr">
+          <hr>
+        </div>
+        <div class="display" id="dhSwell_display">
+          <h3>DH Swell</h3>
+          <p id="dhSwell_out">---</p>
+        </div>
+        <div class="display" id="dhFit_display">
+          <h3>DH Fit</h3>
+          <p id="dhFit_out">---</p>
+        </div>
+        <div class="display" id="dhTargetComp_display">
+          <h3>DH Target Compression</h3>
+          <p id="DhTargetComp_out">---</p>
+        </div>
+        <div class="display" id="dhAcceptComp_display">
+          <h3>DH Acceptable Compression</h3>
+          <p id="DhAcceptComp_out">---</p>
+        </div>
+        <div class="display" id="dhComp_display">
+          <h3>DH Compression</h3>
+          <p id="dhComp_out">---</p>
+        </div>
+        <div class="display" id="targetFit_display">
+          <h3>Target Shop Fit</h3>
+          <canvas id="fitCanvas" width="800px" height="300"></canvas>
+        </div>
+        <div class="display" id="targetTemp_display">
+          <h3>Temp Range of Model Size</h3>
+          <canvas id="tempCanvas" width="800px" height="300"></canvas>
+        </div>
+      </section>
+      <p id="data_out"></p>
+    </div>
+  </body>
+</html>
